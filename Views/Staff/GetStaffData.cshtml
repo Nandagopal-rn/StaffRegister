@@ -1,0 +1,59 @@
+﻿@model IEnumerable<StaffRegister.Models.StaffProperty>
+
+@{
+    ViewData["Title"] = "GetStaffData";
+}
+
+<h1><b>Staff Details</b></h1><br>
+
+<p>
+    <a asp-action="InsertStaff">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffAge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffDesig)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffExp)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffAge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffDesig)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffExp)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "UpdateStaff", new { Id = item.Id }) |
+                @Html.ActionLink("Details", "GetStaffById", new { Id = item.Id }) |
+                @Html.ActionLink("Delete", "DeleteStaff", new { Id = item.Id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
